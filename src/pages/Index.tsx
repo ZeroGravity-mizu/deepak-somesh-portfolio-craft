@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Download, Mail, Phone, Github, LinkedinIcon, ExternalLink, GraduationCap, Briefcase, Code, Award } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 
@@ -47,12 +48,50 @@ const Index = () => {
     {
       title: "AWS Certified Cloud Practitioner",
       date: "Dec 2024",
-      icon: "☁️"
+      icon: "☁️",
+      issuer: "Amazon Web Services"
     },
     {
       title: "Microsoft Certified: Azure Data Fundamentals",
       date: "Nov 2022",
-      icon: "⚡"
+      icon: "⚡",
+      issuer: "Microsoft"
+    },
+    {
+      title: "Google Cloud Professional Data Engineer",
+      date: "Sep 2023",
+      icon: "🔧",
+      issuer: "Google Cloud"
+    },
+    {
+      title: "Certified Kubernetes Administrator",
+      date: "Mar 2023",
+      icon: "🚢",
+      issuer: "CNCF"
+    },
+    {
+      title: "Python for Data Science Certificate",
+      date: "Jan 2022",
+      icon: "🐍",
+      issuer: "IBM"
+    },
+    {
+      title: "Machine Learning Specialization",
+      date: "Aug 2023",
+      icon: "🤖",
+      issuer: "Stanford University"
+    },
+    {
+      title: "Docker Certified Associate",
+      date: "Jun 2023",
+      icon: "🐳",
+      issuer: "Docker Inc"
+    },
+    {
+      title: "TensorFlow Developer Certificate",
+      date: "Apr 2023",
+      icon: "🧠",
+      issuer: "Google"
     }
   ];
 
@@ -289,27 +328,38 @@ const Index = () => {
 
       {/* Certifications Section */}
       <section className="py-16 px-6 bg-white/50">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <AnimatedSection>
             <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Certifications</h2>
           </AnimatedSection>
-          <div className="grid md:grid-cols-2 gap-6">
-            {certifications.map((cert, index) => (
-              <AnimatedSection 
-                key={index} 
-                animation="fade-up" 
-                delay={index * 150}
-              >
-                <Card className="bg-white/60 backdrop-blur-sm border-white/40 hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-6 text-center">
-                    <div className="text-4xl mb-4">{cert.icon}</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{cert.title}</h3>
-                    <p className="text-gray-600">{cert.date}</p>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-            ))}
-          </div>
+          <AnimatedSection animation="fade-up">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {certifications.map((cert, index) => (
+                  <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
+                    <Card className="bg-white/60 backdrop-blur-sm border-white/40 hover:shadow-lg transition-all duration-300 h-full">
+                      <CardContent className="p-6 text-center flex flex-col justify-between h-full">
+                        <div>
+                          <div className="text-4xl mb-4">{cert.icon}</div>
+                          <h3 className="text-xl font-bold text-gray-900 mb-2">{cert.title}</h3>
+                          <p className="text-blue-600 font-medium mb-2">{cert.issuer}</p>
+                        </div>
+                        <p className="text-gray-600 mt-auto">{cert.date}</p>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden md:flex" />
+              <CarouselNext className="hidden md:flex" />
+            </Carousel>
+          </AnimatedSection>
         </div>
       </section>
 
