@@ -1,15 +1,17 @@
-
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Download, Mail, Phone, Github, LinkedinIcon, ExternalLink, GraduationCap, Briefcase, Code, Award } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
+import { Download, Mail, Phone, Github, LinkedinIcon, ExternalLink, GraduationCap, Briefcase, Code, Award, ChevronLeft, ChevronRight } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const Index = () => {
   const [displayedText, setDisplayedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [slideCount, setSlideCount] = useState(0);
   const fullText = "Data Scientist & Software Engineer";
 
   useEffect(() => {
@@ -21,6 +23,19 @@ const Index = () => {
       return () => clearTimeout(timeout);
     }
   }, [currentIndex, fullText]);
+
+  useEffect(() => {
+    if (!carouselApi) {
+      return;
+    }
+
+    setSlideCount(carouselApi.scrollSnapList().length);
+    setCurrentSlide(carouselApi.selectedScrollSnap());
+
+    carouselApi.on("select", () => {
+      setCurrentSlide(carouselApi.selectedScrollSnap());
+    });
+  }, [carouselApi]);
 
   const skills = {
     "Languages": ["Python", "Java", "SQL", "React JS", "HTML/CSS", "Javascript"],
@@ -339,6 +354,7 @@ const Index = () => {
                 loop: true,
               }}
               className="w-full"
+              setApi={setCarouselApi}
             >
               <CarouselContent className="-ml-2 md:-ml-4">
                 {certifications.map((cert, index) => (
@@ -356,9 +372,44 @@ const Index = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="hidden md:flex" />
-              <CarouselNext className="hidden md:flex" />
             </Carousel>
+            
+            {/* Custom Pagination Controls */}
+            <div className="flex items-center justify-center mt-8 space-x-4">
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-8 w-8 rounded-full"
+                onClick={() => carouselApi?.scrollPrev()}
+                disabled={!carouselApi?.canScrollPrev()}
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+              
+              <div className="flex space-x-2">
+                {Array.from({ length: slideCount }, (_, index) => (
+                  <button
+                    key={index}
+                    className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                      index === currentSlide 
+                        ? "bg-blue-600 w-6" 
+                        : "bg-gray-300 hover:bg-gray-400"
+                    }`}
+                    onClick={() => carouselApi?.scrollTo(index)}
+                  />
+                ))}
+              </div>
+              
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-8 w-8 rounded-full"
+                onClick={() => carouselApi?.scrollNext()}
+                disabled={!carouselApi?.canScrollNext()}
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
           </AnimatedSection>
         </div>
       </section>
