@@ -88,6 +88,18 @@ const Index = () => {
       <section className="pt-24 pb-16 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <div className="animate-fade-in">
+            {/* Profile Photo */}
+            <div className="mb-8 flex justify-center">
+              <div className="relative">
+                <img 
+                  src="/lovable-uploads/10cb7ae9-95e0-4671-8413-13217d689f7b.png" 
+                  alt="K J Deepak Somesh"
+                  className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-2xl border-4 border-white/50 hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-600/20 to-indigo-600/20"></div>
+              </div>
+            </div>
+            
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
               K J Deepak Somesh
             </h1>
