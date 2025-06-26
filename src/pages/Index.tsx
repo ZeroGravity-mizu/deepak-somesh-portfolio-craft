@@ -116,12 +116,12 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-white/20 z-50">
+      <nav className="fixed top-0 left-0 right-0 bg-gray-900/80 backdrop-blur-md border-b border-gray-700/20 z-50">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <div className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
               KJ Deepak Somesh
             </div>
             <div className="hidden md:flex space-x-6">
@@ -129,7 +129,7 @@ const Index = () => {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
+                  className="text-gray-300 hover:text-blue-400 transition-colors duration-200 font-medium"
                 >
                   {item}
                 </button>
@@ -149,20 +149,20 @@ const Index = () => {
                 <img 
                   src="/lovable-uploads/10cb7ae9-95e0-4671-8413-13217d689f7b.png" 
                   alt="K J Deepak Somesh"
-                  className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-2xl border-4 border-white/50 hover:scale-105 transition-transform duration-300"
+                  className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-2xl border-4 border-gray-700/50 hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-600/20 to-indigo-600/20"></div>
               </div>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
               K J Deepak Somesh
             </h1>
-            <div className="text-2xl md:text-3xl text-blue-600 mb-4 h-12 flex items-center justify-center">
+            <div className="text-2xl md:text-3xl text-blue-400 mb-4 h-12 flex items-center justify-center">
               {displayedText}
               <span className="animate-pulse ml-1">|</span>
             </div>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               📍 Leiden, The Netherlands
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -190,11 +190,11 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 px-6 bg-white/50">
+      <section id="about" className="py-16 px-6 bg-gray-800/50">
         <div className="max-w-4xl mx-auto text-center">
           <AnimatedSection>
-            <h2 className="text-4xl font-bold text-gray-900 mb-8">About Me</h2>
-            <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold text-white mb-8">About Me</h2>
+            <p className="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
               I'm a passionate Data Scientist and Software Engineer currently pursuing my Master's in Computer Science: Data Science at Universiteit Leiden. 
               With over 3 years of professional experience at Wipro and a strong foundation in both software development and data science, 
               I specialize in creating intelligent solutions that bridge the gap between complex data insights and practical applications.
@@ -207,7 +207,7 @@ const Index = () => {
       <section id="skills" className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Skills & Technologies</h2>
+            <h2 className="text-4xl font-bold text-center text-white mb-12">Skills & Technologies</h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {Object.entries(skills).map(([category, skillList], index) => (
@@ -216,18 +216,18 @@ const Index = () => {
                 animation="fade-up" 
                 delay={index * 100}
               >
-                <Card className="bg-white/60 backdrop-blur-sm border-white/40 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                <Card className="bg-gray-800/60 backdrop-blur-sm border-gray-700/40 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                      {category === "Languages" && <Code className="mr-2 h-5 w-5 text-blue-600" />}
-                      {category === "Frameworks & Libraries" && <Briefcase className="mr-2 h-5 w-5 text-green-600" />}
-                      {category === "Tools" && <Award className="mr-2 h-5 w-5 text-purple-600" />}
-                      {category === "Cloud" && <GraduationCap className="mr-2 h-5 w-5 text-orange-600" />}
+                    <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                      {category === "Languages" && <Code className="mr-2 h-5 w-5 text-blue-400" />}
+                      {category === "Frameworks & Libraries" && <Briefcase className="mr-2 h-5 w-5 text-green-400" />}
+                      {category === "Tools" && <Award className="mr-2 h-5 w-5 text-purple-400" />}
+                      {category === "Cloud" && <GraduationCap className="mr-2 h-5 w-5 text-orange-400" />}
                       {category}
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {skillList.map((skill) => (
-                        <Badge key={skill} variant="secondary" className="bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 hover:from-blue-200 hover:to-indigo-200 transition-all duration-200">
+                        <Badge key={skill} variant="secondary" className="bg-gradient-to-r from-blue-900/50 to-indigo-900/50 text-blue-200 hover:from-blue-800/50 hover:to-indigo-800/50 transition-all duration-200">
                           {skill}
                         </Badge>
                       ))}
@@ -241,24 +241,24 @@ const Index = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-16 px-6 bg-white/50">
+      <section id="experience" className="py-16 px-6 bg-gray-800/50">
         <div className="max-w-4xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Professional Experience</h2>
+            <h2 className="text-4xl font-bold text-center text-white mb-12">Professional Experience</h2>
           </AnimatedSection>
           <div className="space-y-8">
             <AnimatedSection animation="fade-left">
-              <Card className="bg-white/60 backdrop-blur-sm border-white/40 hover:shadow-lg transition-all duration-300">
+              <Card className="bg-gray-800/60 backdrop-blur-sm border-gray-700/40 hover:shadow-lg transition-all duration-300">
                 <CardContent className="p-8">
                   <div className="flex items-start space-x-4">
                     <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-3 rounded-full">
                       <Briefcase className="h-6 w-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-gray-900">Software Engineer</h3>
-                      <p className="text-xl text-blue-600 mb-2">Wipro</p>
-                      <p className="text-gray-600 mb-4">July 2022 – Feb 2025</p>
-                      <ul className="list-disc list-inside text-gray-700 space-y-2">
+                      <h3 className="text-2xl font-bold text-white">Software Engineer</h3>
+                      <p className="text-xl text-blue-400 mb-2">Wipro</p>
+                      <p className="text-gray-400 mb-4">July 2022 – Feb 2025</p>
+                      <ul className="list-disc list-inside text-gray-300 space-y-2">
                         <li>Developed and maintained enterprise-level software applications</li>
                         <li>Collaborated with cross-functional teams to deliver high-quality solutions</li>
                         <li>Implemented automated testing frameworks using Cucumber and Selenium</li>
@@ -271,17 +271,17 @@ const Index = () => {
             </AnimatedSection>
             
             <AnimatedSection animation="fade-right">
-              <Card className="bg-white/60 backdrop-blur-sm border-white/40 hover:shadow-lg transition-all duration-300">
+              <Card className="bg-gray-800/60 backdrop-blur-sm border-gray-700/40 hover:shadow-lg transition-all duration-300">
                 <CardContent className="p-8">
                   <div className="flex items-start space-x-4">
                     <div className="bg-gradient-to-r from-green-600 to-emerald-600 p-3 rounded-full">
                       <Code className="h-6 w-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-gray-900">Web Developer Intern</h3>
-                      <p className="text-xl text-green-600 mb-2">Verzeo</p>
-                      <p className="text-gray-600 mb-4">Jan 2021 – June 2021</p>
-                      <ul className="list-disc list-inside text-gray-700 space-y-2">
+                      <h3 className="text-2xl font-bold text-white">Web Developer Intern</h3>
+                      <p className="text-xl text-green-400 mb-2">Verzeo</p>
+                      <p className="text-gray-400 mb-4">Jan 2021 – June 2021</p>
+                      <ul className="list-disc list-inside text-gray-300 space-y-2">
                         <li>Built responsive web applications using modern JavaScript frameworks</li>
                         <li>Gained hands-on experience with full-stack development</li>
                         <li>Collaborated with design teams to implement user-friendly interfaces</li>
@@ -299,7 +299,7 @@ const Index = () => {
       <section id="projects" className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Featured Projects</h2>
+            <h2 className="text-4xl font-bold text-center text-white mb-12">Featured Projects</h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
@@ -308,27 +308,27 @@ const Index = () => {
                 animation="scale-up" 
                 delay={index * 200}
               >
-                <Card className="bg-white/60 backdrop-blur-sm border-white/40 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+                <Card className="bg-gray-800/60 backdrop-blur-sm border-gray-700/40 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
                   <CardContent className="p-8">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-gray-700 mb-6">{project.description}</p>
+                    <p className="text-gray-300 mb-6">{project.description}</p>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tech.map((tech) => (
-                        <Badge key={tech} variant="outline" className="border-blue-200 text-blue-700">
+                        <Badge key={tech} variant="outline" className="border-blue-400/30 text-blue-300">
                           {tech}
                         </Badge>
                       ))}
                     </div>
                     <div className="flex space-x-4">
-                      <Button variant="outline" className="border-gray-300 hover:border-blue-500 hover:text-blue-600" asChild>
+                      <Button variant="outline" className="border-gray-600 text-gray-300 hover:border-blue-400 hover:text-blue-400" asChild>
                         <a href={project.github} target="_blank" rel="noopener noreferrer">
                           <Github className="mr-2 h-4 w-4" />
                           GitHub
                         </a>
                       </Button>
-                      <Button variant="outline" className="border-gray-300 hover:border-indigo-500 hover:text-indigo-600">
+                      <Button variant="outline" className="border-gray-600 text-gray-300 hover:border-indigo-400 hover:text-indigo-400">
                         <ExternalLink className="mr-2 h-4 w-4" />
                         Live Demo
                       </Button>
@@ -342,10 +342,10 @@ const Index = () => {
       </section>
 
       {/* Certifications Section */}
-      <section className="py-16 px-6 bg-white/50">
+      <section className="py-16 px-6 bg-gray-800/50">
         <div className="max-w-6xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Certifications</h2>
+            <h2 className="text-4xl font-bold text-center text-white mb-12">Certifications</h2>
           </AnimatedSection>
           <AnimatedSection animation="fade-up">
             <Carousel
@@ -359,14 +359,14 @@ const Index = () => {
               <CarouselContent className="-ml-2 md:-ml-4">
                 {certifications.map((cert, index) => (
                   <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
-                    <Card className="bg-white/60 backdrop-blur-sm border-white/40 hover:shadow-lg transition-all duration-300 h-full">
+                    <Card className="bg-gray-800/60 backdrop-blur-sm border-gray-700/40 hover:shadow-lg transition-all duration-300 h-full">
                       <CardContent className="p-6 text-center flex flex-col justify-between h-full">
                         <div>
                           <div className="text-4xl mb-4">{cert.icon}</div>
-                          <h3 className="text-xl font-bold text-gray-900 mb-2">{cert.title}</h3>
-                          <p className="text-blue-600 font-medium mb-2">{cert.issuer}</p>
+                          <h3 className="text-xl font-bold text-white mb-2">{cert.title}</h3>
+                          <p className="text-blue-400 font-medium mb-2">{cert.issuer}</p>
                         </div>
-                        <p className="text-gray-600 mt-auto">{cert.date}</p>
+                        <p className="text-gray-400 mt-auto">{cert.date}</p>
                       </CardContent>
                     </Card>
                   </CarouselItem>
@@ -379,7 +379,7 @@ const Index = () => {
               <Button
                 variant="outline"
                 size="icon"
-                className="h-8 w-8 rounded-full"
+                className="h-8 w-8 rounded-full border-gray-600 text-gray-300 hover:border-blue-400 hover:text-blue-400"
                 onClick={() => carouselApi?.scrollPrev()}
                 disabled={!carouselApi?.canScrollPrev()}
               >
@@ -392,8 +392,8 @@ const Index = () => {
                     key={index}
                     className={`w-2 h-2 rounded-full transition-all duration-200 ${
                       index === currentSlide 
-                        ? "bg-blue-600 w-6" 
-                        : "bg-gray-300 hover:bg-gray-400"
+                        ? "bg-blue-400 w-6" 
+                        : "bg-gray-600 hover:bg-gray-500"
                     }`}
                     onClick={() => carouselApi?.scrollTo(index)}
                   />
@@ -403,7 +403,7 @@ const Index = () => {
               <Button
                 variant="outline"
                 size="icon"
-                className="h-8 w-8 rounded-full"
+                className="h-8 w-8 rounded-full border-gray-600 text-gray-300 hover:border-blue-400 hover:text-blue-400"
                 onClick={() => carouselApi?.scrollNext()}
                 disabled={!carouselApi?.canScrollNext()}
               >
@@ -418,19 +418,19 @@ const Index = () => {
       <section id="education" className="py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <AnimatedSection>
-            <h2 className="text-4xl font-bold text-gray-900 mb-12">Education</h2>
+            <h2 className="text-4xl font-bold text-white mb-12">Education</h2>
           </AnimatedSection>
           <AnimatedSection animation="scale-up">
-            <Card className="bg-white/60 backdrop-blur-sm border-white/40 hover:shadow-lg transition-all duration-300">
+            <Card className="bg-gray-800/60 backdrop-blur-sm border-gray-700/40 hover:shadow-lg transition-all duration-300">
               <CardContent className="p-8">
                 <div className="flex items-center justify-center mb-6">
                   <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-4 rounded-full">
                     <GraduationCap className="h-8 w-8 text-white" />
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Master's in Computer Science: Data Science</h3>
-                <p className="text-xl text-purple-600 mb-2">Universiteit Leiden</p>
-                <p className="text-gray-600">Feb 2025 – Jan 2027</p>
+                <h3 className="text-2xl font-bold text-white mb-2">Master's in Computer Science: Data Science</h3>
+                <p className="text-xl text-purple-400 mb-2">Universiteit Leiden</p>
+                <p className="text-gray-400">Feb 2025 – Jan 2027</p>
               </CardContent>
             </Card>
           </AnimatedSection>
@@ -438,7 +438,7 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-6 bg-gradient-to-br from-blue-600 to-indigo-700">
+      <section id="contact" className="py-16 px-6 bg-gradient-to-br from-blue-900 to-indigo-900">
         <div className="max-w-4xl mx-auto text-center">
           <AnimatedSection>
             <h2 className="text-4xl font-bold text-white mb-12">Get In Touch</h2>
@@ -457,7 +457,7 @@ const Index = () => {
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-300">
                   <contact.icon className="h-8 w-8 text-white mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-white mb-2">{contact.title}</h3>
-                  <p className="text-blue-100">{contact.content}</p>
+                  <p className="text-blue-200">{contact.content}</p>
                 </div>
               </AnimatedSection>
             ))}
