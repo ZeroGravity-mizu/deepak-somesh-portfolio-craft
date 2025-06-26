@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -144,7 +143,18 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-6 relative overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=6000&q=80')"
+          }}
+        ></div>
+        
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-slate-800/90 to-gray-900/90"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20 animate-pulse"></div>
+        
         <div className="max-w-6xl mx-auto text-center relative z-10">
           <div className="animate-fade-in">
             {/* Profile Photo */}
@@ -163,7 +173,7 @@ const Index = () => {
             </AnimatedSection>
             
             <AnimatedSection animation="slide-up" delay={200} duration={1000}>
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 K J Deepak Somesh
               </h1>
             </AnimatedSection>
@@ -237,7 +247,7 @@ const Index = () => {
             animation="scale-up"
           >
             {Object.entries(skills).map(([category, skillList]) => (
-              <Card key={category} className="bg-gray-800/60 backdrop-blur-sm border-gray-700/40 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 group">
+              <Card key={category} className="bg-gray-800/60 backdrop-blur-sm border-gray-700/40 hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 group">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold text-white mb-4 flex items-center group-hover:text-blue-400 transition-colors duration-300">
                     {category === "Languages" && <Code className="mr-2 h-5 w-5 text-blue-400 group-hover:animate-pulse" />}
