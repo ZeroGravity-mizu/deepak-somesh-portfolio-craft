@@ -151,6 +151,13 @@ const Index = () => {
           }}
         ></div>
         
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/15 to-indigo-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-gradient-to-r from-indigo-500/25 to-blue-500/25 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        </div>
+        
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-slate-800/90 to-gray-900/90"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20 animate-pulse"></div>
@@ -218,8 +225,24 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 px-6 bg-gray-800/50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/10 to-purple-900/10"></div>
+      <section id="about" className="py-16 px-6 relative overflow-hidden">
+        {/* Geometric Background Pattern */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-purple-900/30 to-indigo-900/20"></div>
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                             radial-gradient(circle at 75% 75%, rgba(147, 51, 234, 0.1) 0%, transparent 50%),
+                             radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.1) 0%, transparent 50%)`
+          }}></div>
+          <div className="absolute top-0 left-0 w-full h-full opacity-30">
+            <div className="absolute top-1/4 left-1/6 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+            <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+            <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-indigo-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute bottom-1/4 right-1/6 w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+          </div>
+        </div>
+        <div className="absolute inset-0 bg-gray-800/60 backdrop-blur-sm"></div>
+        
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <AnimatedSection animation="rotate-in" duration={1000}>
             <h2 className="text-4xl font-bold text-white mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">About Me</h2>
@@ -236,7 +259,19 @@ const Index = () => {
 
       {/* Skills Section */}
       <section id="skills" className="py-16 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-l from-purple-900/10 to-blue-900/10"></div>
+        {/* Animated Circuit Board Pattern */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900"></div>
+          <div className="absolute inset-0 bg-gradient-to-l from-purple-900/20 to-blue-900/20"></div>
+          <div className="absolute inset-0" style={{
+            backgroundImage: `linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                             linear-gradient(rgba(147, 51, 234, 0.1) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px'
+          }}></div>
+          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-500/10 to-indigo-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        </div>
+        
         <div className="max-w-6xl mx-auto relative z-10">
           <AnimatedSection animation="zoom-in" duration={1000}>
             <h2 className="text-4xl font-bold text-center text-white mb-12 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Skills & Technologies</h2>
@@ -276,8 +311,21 @@ const Index = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-16 px-6 bg-gray-800/50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-green-900/10 to-blue-900/10"></div>
+      <section id="experience" className="py-16 px-6 relative overflow-hidden">
+        {/* Layered Wave Pattern */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-green-900/15 to-blue-900/15"></div>
+          <div className="absolute inset-0" style={{
+            backgroundImage: `repeating-linear-gradient(45deg, rgba(34, 197, 94, 0.05) 0px, rgba(34, 197, 94, 0.05) 2px, transparent 2px, transparent 20px),
+                             repeating-linear-gradient(-45deg, rgba(59, 130, 246, 0.05) 0px, rgba(59, 130, 246, 0.05) 2px, transparent 2px, transparent 20px)`
+          }}></div>
+          <div className="absolute top-0 left-0 w-full h-full">
+            <div className="absolute top-1/4 left-1/5 w-64 h-64 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-1/4 right-1/5 w-80 h-80 bg-gradient-to-r from-blue-500/15 to-cyan-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+          </div>
+        </div>
+        <div className="absolute inset-0 bg-gray-800/70 backdrop-blur-sm"></div>
+        
         <div className="max-w-4xl mx-auto relative z-10">
           <AnimatedSection animation="slide-up" duration={1000}>
             <h2 className="text-4xl font-bold text-center text-white mb-12 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Professional Experience</h2>
@@ -333,7 +381,21 @@ const Index = () => {
 
       {/* Projects Section */}
       <section id="projects" className="py-16 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 to-indigo-900/10"></div>
+        {/* Hexagonal Pattern Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-indigo-900/20"></div>
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.1) 2px, transparent 2px)`,
+            backgroundSize: '50px 50px'
+          }}></div>
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/15 to-indigo-500/15 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 left-1/4 w-72 h-72 bg-gradient-to-r from-indigo-500/20 to-violet-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute inset-0" style={{
+            backgroundImage: `conic-gradient(from 0deg at 50% 50%, rgba(168, 85, 247, 0.1) 0deg, transparent 60deg, rgba(99, 102, 241, 0.1) 120deg, transparent 180deg, rgba(168, 85, 247, 0.1) 240deg, transparent 300deg, rgba(99, 102, 241, 0.1) 360deg)`,
+            backgroundSize: '200px 200px'
+          }}></div>
+        </div>
+        
         <div className="max-w-6xl mx-auto relative z-10">
           <AnimatedSection animation="bounce-in" duration={1000}>
             <h2 className="text-4xl font-bold text-center text-white mb-12 bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">Featured Projects</h2>
@@ -382,8 +444,24 @@ const Index = () => {
       </section>
 
       {/* Certifications Section */}
-      <section className="py-16 px-6 bg-gray-800/50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-l from-orange-900/10 to-red-900/10"></div>
+      <section className="py-16 px-6 relative overflow-hidden">
+        {/* Flowing Gradient Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-l from-orange-900/20 to-red-900/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-900/10 via-orange-900/15 to-red-900/10 animate-pulse"></div>
+          <div className="absolute top-0 left-0 w-full h-full">
+            <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-gradient-to-r from-red-500/15 to-pink-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-yellow-500/25 to-orange-500/25 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+          </div>
+          <div className="absolute inset-0" style={{
+            backgroundImage: `linear-gradient(60deg, rgba(251, 146, 60, 0.1) 25%, transparent 25%),
+                             linear-gradient(-60deg, rgba(239, 68, 68, 0.1) 25%, transparent 25%)`,
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+        <div className="absolute inset-0 bg-gray-800/60 backdrop-blur-sm"></div>
+        
         <div className="max-w-6xl mx-auto relative z-10">
           <AnimatedSection animation="rotate-in" duration={1000}>
             <h2 className="text-4xl font-bold text-center text-white mb-12 bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">Certifications</h2>
@@ -457,7 +535,19 @@ const Index = () => {
 
       {/* Education Section */}
       <section id="education" className="py-16 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-pink-900/10 to-purple-900/10"></div>
+        {/* Academic Pattern Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-pink-900/20 to-purple-900/20"></div>
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 20% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+                             radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.1) 0%, transparent 50%),
+                             radial-gradient(circle at 40% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+                             radial-gradient(circle at 80% 20%, rgba(219, 39, 119, 0.1) 0%, transparent 50%)`
+          }}></div>
+          <div className="absolute top-1/4 left-1/3 w-72 h-72 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-to-r from-purple-500/15 to-violet-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+        </div>
+        
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <AnimatedSection animation="zoom-in" duration={1000}>
             <h2 className="text-4xl font-bold text-white mb-12 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Education</h2>
@@ -480,8 +570,18 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-6 bg-gradient-to-br from-blue-900 to-purple-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 animate-pulse"></div>
+      <section id="contact" className="py-16 px-6 relative overflow-hidden">
+        {/* Dynamic Gradient Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 to-purple-900"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 animate-pulse"></div>
+          <div className="absolute top-0 left-0 w-full h-full">
+            <div className="absolute top-1/4 left-1/5 w-96 h-96 bg-gradient-to-r from-blue-500/30 to-cyan-500/30 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-1/4 right-1/5 w-80 h-80 bg-gradient-to-r from-purple-500/25 to-indigo-500/25 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-indigo-500/35 to-purple-500/35 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+          </div>
+        </div>
+        
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <AnimatedSection animation="slide-up" duration={1000}>
             <h2 className="text-4xl font-bold text-white mb-12">Get In Touch</h2>
