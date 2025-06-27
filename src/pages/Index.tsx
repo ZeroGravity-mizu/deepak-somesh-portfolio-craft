@@ -1,9 +1,10 @@
+
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
-import { Download, Mail, Phone, Github, LinkedinIcon, ExternalLink, GraduationCap, Briefcase, Code, Award, ChevronLeft, ChevronRight } from "lucide-react";
+import { Download, Mail, Phone, Github, LinkedinIcon, ExternalLink, GraduationCap, Briefcase, Code, Award, ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import StaggeredContainer from "@/components/StaggeredContainer";
 
@@ -13,6 +14,7 @@ const Index = () => {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slideCount, setSlideCount] = useState(0);
+  const [expandedExperience, setExpandedExperience] = useState<string | null>(null);
   const fullText = "Data Scientist & Software Engineer";
 
   useEffect(() => {
@@ -57,6 +59,27 @@ const Index = () => {
       description: "Desktop application for advanced image processing and manipulation",
       github: "https://github.com/deepaksomi1986/ImProc",
       tech: ["Python", "OpenCV", "Tkinter"]
+    }
+  ];
+
+  const experiences = [
+    {
+      id: "software-engineer",
+      title: "Software Engineer",
+      company: "Wipro",
+      period: "July 2022 – Feb 2025",
+      tech: ["Python", "Java", "SpringBoot", "SQL", "AWS", "Git", "PyTorch"],
+      shortDescription: "During my time at Wipro, I worked on building scalable microservices and integrating machine learning models into real-world enterprise systems.",
+      fullDescription: "During my time at Wipro, I worked on building scalable microservices and integrating machine learning models into real-world enterprise systems. I designed and maintained backend services using Java, Spring Boot, and Python, and optimized them to handle high-volume data flows efficiently.\n\nOne of the most rewarding challenges I tackled was deploying a Random Forest-based error classification model that could automatically detect and resolve system errors—reducing manual intervention by over 85%. I also integrated a customer segmentation model into a REST API, enabling real-time personalization with sub-second response times.\n\nBeyond code, I got to work closely with cross-functional teams and contributed to projects that delivered tangible business value—including saving operational costs and speeding up workflows. I also received the Habit Flagbearer Award for leading critical production builds that had a significant business impact."
+    },
+    {
+      id: "web-developer-intern",
+      title: "Web Developer Intern",
+      company: "Verzeo",
+      period: "Jan 2021 – June 2021",
+      tech: ["React JS", "Speech Recognition", "NLP", "Figma"],
+      shortDescription: "At Verzeo, I had my first hands-on experience working on full-stack web development and AI-powered features.",
+      fullDescription: "At Verzeo, I had my first hands-on experience working on full-stack web development and AI-powered features. I helped build a voice assistant using NLP with spaCy, which could understand user intents and respond with over 60% higher accuracy compared to earlier versions.\n\nI also contributed to the front-end using Figma for UI design and helped improve the responsiveness of the web app across devices. From tuning HTML/CSS layouts to wiring up JavaScript features, I enjoyed learning how design and development come together to build smooth user experiences.\n\nThis internship solidified my interest in building user-centric, intelligent software and introduced me to the exciting overlap between natural language understanding and product usability."
     }
   ];
 
@@ -114,6 +137,10 @@ const Index = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const toggleExperience = (experienceId: string) => {
+    setExpandedExperience(expandedExperience === experienceId ? null : experienceId);
   };
 
   return (
@@ -331,50 +358,79 @@ const Index = () => {
             <h2 className="text-4xl font-bold text-center text-white mb-12 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Professional Experience</h2>
           </AnimatedSection>
           <div className="space-y-8">
-            <AnimatedSection animation="fade-left" delay={200} duration={1000}>
-              <Card className="bg-gray-800/60 backdrop-blur-sm border-gray-700/40 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-500 transform hover:-translate-y-2 group">
-                <CardContent className="p-8">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">
-                      <Briefcase className="h-6 w-6 text-white" />
+            {experiences.map((experience, index) => (
+              <AnimatedSection 
+                key={experience.id}
+                animation={index % 2 === 0 ? "fade-left" : "fade-right"} 
+                delay={200 + (index * 200)} 
+                duration={1000}
+              >
+                <Card className="bg-gray-800/60 backdrop-blur-sm border-gray-700/40 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-500 transform hover:-translate-y-2 group">
+                  <CardContent className="p-8">
+                    <div className="flex items-start space-x-4">
+                      <div className={`${index === 0 ? 'bg-gradient-to-r from-blue-600 to-purple-600' : 'bg-gradient-to-r from-green-600 to-emerald-600'} p-3 rounded-full group-hover:scale-110 transition-transform duration-300`}>
+                        {index === 0 ? <Briefcase className="h-6 w-6 text-white" /> : <Code className="h-6 w-6 text-white" />}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className={`text-2xl font-bold text-white ${index === 0 ? 'group-hover:text-blue-400' : 'group-hover:text-green-400'} transition-colors duration-300`}>
+                          {experience.title}
+                        </h3>
+                        <p className={`text-xl ${index === 0 ? 'text-blue-400' : 'text-green-400'} mb-2`}>
+                          {experience.company}
+                        </p>
+                        <p className="text-gray-400 mb-4">{experience.period}</p>
+                        
+                        {/* Technology Badges */}
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {experience.tech.map((tech, techIndex) => (
+                            <Badge 
+                              key={tech} 
+                              variant="secondary" 
+                              className={`${index === 0 ? 'bg-gradient-to-r from-blue-900/50 to-purple-900/50 text-blue-200 hover:from-blue-800/50 hover:to-purple-800/50' : 'bg-gradient-to-r from-green-900/50 to-emerald-900/50 text-green-200 hover:from-green-800/50 hover:to-emerald-800/50'} transition-all duration-300 transform hover:scale-110`}
+                              style={{ animationDelay: `${techIndex * 50}ms` }}
+                            >
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                        
+                        {/* Description */}
+                        <div className="text-gray-300 leading-relaxed">
+                          {expandedExperience === experience.id ? (
+                            <div className="space-y-4">
+                              {experience.fullDescription.split('\n\n').map((paragraph, pIndex) => (
+                                <p key={pIndex}>{paragraph}</p>
+                              ))}
+                            </div>
+                          ) : (
+                            <p>{experience.shortDescription}</p>
+                          )}
+                        </div>
+                        
+                        {/* Read More Button */}
+                        <Button
+                          variant="outline"
+                          onClick={() => toggleExperience(experience.id)}
+                          className={`mt-4 ${index === 0 ? 'border-blue-600 text-blue-600 hover:bg-blue-600' : 'border-green-600 text-green-600 hover:bg-green-600'} hover:text-white transition-all duration-300 transform hover:scale-105`}
+                        >
+                          {expandedExperience === experience.id ? (
+                            <>
+                              <ChevronUp className="mr-2 h-4 w-4" />
+                              Read Less
+                            </>
+                          ) : (
+                            <>
+                              <ChevronDown className="mr-2 h-4 w-4" />
+                              Read More
+                            </>
+                          )}
+                        </Button>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">Software Engineer</h3>
-                      <p className="text-xl text-blue-400 mb-2">Wipro</p>
-                      <p className="text-gray-400 mb-4">July 2022 – Feb 2025</p>
-                      <ul className="list-disc list-inside text-gray-300 space-y-2">
-                        <li>Developed and maintained enterprise-level software applications</li>
-                        <li>Collaborated with cross-functional teams to deliver high-quality solutions</li>
-                        <li>Implemented automated testing frameworks using Cucumber and Selenium</li>
-                        <li>Optimized application performance and scalability</li>
-                      </ul>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
-            
-            <AnimatedSection animation="fade-right" delay={400} duration={1000}>
-              <Card className="bg-gray-800/60 backdrop-blur-sm border-gray-700/40 hover:shadow-xl hover:shadow-green-500/20 transition-all duration-500 transform hover:-translate-y-2 group">
-                <CardContent className="p-8">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-gradient-to-r from-green-600 to-emerald-600 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">
-                      <Code className="h-6 w-6 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-white group-hover:text-green-400 transition-colors duration-300">Web Developer Intern</h3>
-                      <p className="text-xl text-green-400 mb-2">Verzeo</p>
-                      <p className="text-gray-400 mb-4">Jan 2021 – June 2021</p>
-                      <ul className="list-disc list-inside text-gray-300 space-y-2">
-                        <li>Built responsive web applications using modern JavaScript frameworks</li>
-                        <li>Gained hands-on experience with full-stack development</li>
-                        <li>Collaborated with design teams to implement user-friendly interfaces</li>
-                      </ul>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>
