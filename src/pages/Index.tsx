@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
-import { Download, Mail, Phone, Github, LinkedinIcon, ExternalLink, GraduationCap, Briefcase, Code, Award, ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Download, Mail, Phone, Github, LinkedinIcon, ExternalLink, GraduationCap, Briefcase, Code, Award, ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Play } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import StaggeredContainer from "@/components/StaggeredContainer";
 
@@ -52,14 +53,22 @@ const Index = () => {
       description: "Kaggle Challenge project implementing advanced recommendation algorithms",
       github: "https://github.com/deepaksomi1986/NCF_RS",
       tech: ["Python", "PyTorch", "Machine Learning"],
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=6000&q=80"
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=6000&q=80",
+      problemStatement: "Traditional recommendation systems often suffer from the cold start problem and sparsity issues in user-item interactions. The challenge was to develop a hybrid recommendation system that could effectively combine collaborative filtering and content-based approaches to provide accurate recommendations even with limited user data.",
+      objective: "The primary objective was to implement a Neural Collaborative Filtering (NCF) model that could capture non-linear user-item interactions while incorporating content features. The goal was to achieve higher prediction accuracy compared to traditional matrix factorization techniques and handle the scalability challenges of large-scale recommendation systems.",
+      reportUrl: "/placeholder-report.pdf",
+      demoVideoUrl: "https://www.youtube.com/watch?v=demo1"
     },
     {
       title: "Image Processing Desktop App",
       description: "Desktop application for advanced image processing and manipulation",
       github: "https://github.com/deepaksomi1986/ImProc",
       tech: ["Python", "OpenCV", "Tkinter"],
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3543&q=80"
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3543&q=80",
+      problemStatement: "Image processing tasks often require specialized software that can be expensive and complex for everyday users. There was a need for an accessible, user-friendly desktop application that could perform common image processing operations like filtering, enhancement, and transformation without requiring extensive technical knowledge.",
+      objective: "To develop a comprehensive desktop application using Python and OpenCV that provides an intuitive GUI for various image processing operations. The application aimed to make advanced image processing techniques accessible to non-technical users while maintaining the flexibility for more advanced operations.",
+      reportUrl: "/placeholder-report.pdf",
+      demoVideoUrl: "https://www.youtube.com/watch?v=demo2"
     }
   ];
 
@@ -496,10 +505,71 @@ const Index = () => {
                         GitHub
                       </a>
                     </Button>
-                    <Button variant="outline" className="border-gray-600 text-gray-300 hover:border-indigo-400 hover:text-indigo-400 hover:bg-indigo-400/10 transition-all duration-300 transform hover:scale-105">
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Live Demo
-                    </Button>
+                    
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button variant="outline" className="border-gray-600 text-gray-300 hover:border-indigo-400 hover:text-indigo-400 hover:bg-indigo-400/10 transition-all duration-300 transform hover:scale-105">
+                          <ExternalLink className="mr-2 h-4 w-4" />
+                          Read More
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-gray-800 border-gray-700">
+                        <DialogHeader>
+                          <DialogTitle className="text-2xl font-bold text-white mb-4">{project.title}</DialogTitle>
+                        </DialogHeader>
+                        
+                        {/* Project Image */}
+                        <div className="relative h-64 mb-6 rounded-lg overflow-hidden">
+                          <img 
+                            src={project.image} 
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        
+                        {/* Problem Statement */}
+                        <div className="mb-6">
+                          <h3 className="text-xl font-semibold text-purple-400 mb-3">Problem Statement</h3>
+                          <p className="text-gray-300 leading-relaxed">{project.problemStatement}</p>
+                        </div>
+                        
+                        {/* Objective */}
+                        <div className="mb-6">
+                          <h3 className="text-xl font-semibold text-blue-400 mb-3">Objective</h3>
+                          <p className="text-gray-300 leading-relaxed">{project.objective}</p>
+                        </div>
+                        
+                        {/* Report */}
+                        <div className="mb-6">
+                          <h3 className="text-xl font-semibold text-green-400 mb-3">Report</h3>
+                          <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-600">
+                            <iframe
+                              src={project.reportUrl}
+                              className="w-full h-96 rounded border border-gray-600"
+                              title={`${project.title} Report`}
+                            />
+                            <p className="text-gray-400 text-sm mt-2">
+                              Note: PDF report will be displayed when available
+                            </p>
+                          </div>
+                        </div>
+                        
+                        {/* Demo */}
+                        <div className="mb-4">
+                          <h3 className="text-xl font-semibold text-orange-400 mb-3">Demo</h3>
+                          <Button 
+                            variant="outline" 
+                            className="border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-white transition-all duration-300"
+                            asChild
+                          >
+                            <a href={project.demoVideoUrl} target="_blank" rel="noopener noreferrer">
+                              <Play className="mr-2 h-4 w-4" />
+                              Watch Demo Video
+                            </a>
+                          </Button>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                   </div>
                 </CardContent>
               </Card>
