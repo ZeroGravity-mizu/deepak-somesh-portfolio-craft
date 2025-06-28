@@ -97,19 +97,19 @@ const Index = () => {
     {
       title: "AWS Certified Cloud Practitioner",
       date: "Dec 2024",
-      icon: "☁️",
+      icon: "/lovable-uploads/47fe12d7-9f3a-4d71-a44f-54f16b94920c.png",
       issuer: "Amazon Web Services"
     },
     {
       title: "Microsoft Certified: Azure Data Fundamentals",
       date: "Nov 2022",
-      icon: "⚡",
+      icon: "/lovable-uploads/d8cd37de-129e-4e0a-8cf9-1f964a857507.png",
       issuer: "Microsoft"
     },
     {
       title: "Google Cloud Professional Data Engineer",
       date: "Sep 2023",
-      icon: "🔧",
+      icon: "/lovable-uploads/47dad6de-273a-40a4-9808-5fa803aa5764.png",
       issuer: "Google Cloud"
     },
     {
@@ -616,7 +616,17 @@ const Index = () => {
                     <Card className="bg-gray-800/60 backdrop-blur-sm border-gray-700/40 hover:shadow-xl hover:shadow-orange-500/20 transition-all duration-500 h-full transform hover:-translate-y-2 hover:scale-105 group">
                       <CardContent className="p-6 text-center flex flex-col justify-between h-full">
                         <div>
-                          <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{cert.icon}</div>
+                          <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                            {cert.icon.startsWith('/') ? (
+                              <img 
+                                src={cert.icon} 
+                                alt={cert.title}
+                                className="w-12 h-12 object-contain"
+                              />
+                            ) : (
+                              <div className="text-4xl">{cert.icon}</div>
+                            )}
+                          </div>
                           <h3 className="text-xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors duration-300">{cert.title}</h3>
                           <p className="text-orange-400 font-medium mb-2">{cert.issuer}</p>
                         </div>
