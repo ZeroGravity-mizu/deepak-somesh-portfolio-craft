@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -52,13 +51,15 @@ const Index = () => {
       title: "Hybrid Recommender System",
       description: "Kaggle Challenge project implementing advanced recommendation algorithms",
       github: "https://github.com/deepaksomi1986/NCF_RS",
-      tech: ["Python", "PyTorch", "Machine Learning"]
+      tech: ["Python", "PyTorch", "Machine Learning"],
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=6000&q=80"
     },
     {
       title: "Image Processing Desktop App",
       description: "Desktop application for advanced image processing and manipulation",
       github: "https://github.com/deepaksomi1986/ImProc",
-      tech: ["Python", "OpenCV", "Tkinter"]
+      tech: ["Python", "OpenCV", "Tkinter"],
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3543&q=80"
     }
   ];
 
@@ -462,7 +463,15 @@ const Index = () => {
             animation="zoom-in"
           >
             {projects.map((project) => (
-              <Card key={project.title} className="bg-gray-800/60 backdrop-blur-sm border-gray-700/40 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 group">
+              <Card key={project.title} className="bg-gray-800/60 backdrop-blur-sm border-gray-700/40 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 group overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-800/80 to-transparent"></div>
+                </div>
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors duration-300">
                     {project.title}
