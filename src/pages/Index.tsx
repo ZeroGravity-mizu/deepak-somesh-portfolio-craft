@@ -153,6 +153,13 @@ const Index = () => {
     setExpandedExperience(expandedExperience === experienceId ? null : experienceId);
   };
 
+  const handleSendEmail = () => {
+    const subject = encodeURIComponent("Inquiry about your profile");
+    const body = encodeURIComponent("Hi Deepak,\n\nI found your portfolio and would like to connect with you.\n\nBest regards,");
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=deepaksomi1986@gmail.com&su=${subject}&body=${body}`;
+    window.open(gmailUrl, '_blank');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
       {/* Navigation */}
@@ -749,7 +756,10 @@ const Index = () => {
             ))}
           </StaggeredContainer>
           <AnimatedSection animation="bounce-in" delay={600} duration={1000}>
-            <Button className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25">
+            <Button 
+              onClick={handleSendEmail}
+              className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25"
+            >
               <Mail className="mr-2 h-5 w-5" />
               Send Message
             </Button>
